@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/html5Reset.css" />		
+	<title>Prueba de canvas con HTML - 05</title>
+	<script src="js/modernizr.custom.90022.js"></script>
+</head>
+<body>
+	<header>
+		<hgroup>
+			<h1>Ejemplos de dibujo de líneas</h1>
+			<p>Algun texto divertido</p>
+		</hgroup>		
+	</header>
+	<section>
+		<script>
+			if (Modernizr.canvas) {
+				document.write("<canvas id=\"my_canvas\" width=\"500\" height=\"375\"></canvas>");
+				var mycanvas = document.getElementById("my_canvas");
+				var mycontext = mycanvas.getContext("2d");
+				for (var y = 0.5; y < 375; y += 10){
+					mycontext.moveTo(0, y);
+					mycontext.lineTo(500, y);
+				}
+				for (var x = 0.5; x < 500; x += 10){
+					mycontext.moveTo(x, 0);
+					mycontext.lineTo(x, 375);
+				}				
+				mycontext.strokeStyle = "#eee";
+				mycontext.stroke();
+
+				mycontext.beginPath();
+				mycontext.moveTo(0, 40);
+				mycontext.lineTo(240, 40);
+				mycontext.moveTo(260, 40);
+				mycontext.lineTo(500, 40);
+				mycontext.moveTo(495, 35);
+				mycontext.lineTo(500, 40);
+				mycontext.lineTo(495, 45);				
+
+				mycontext.moveTo(60, 0);
+				mycontext.lineTo(60, 153);
+				mycontext.moveTo(60, 173);
+				mycontext.lineTo(60, 375);
+				mycontext.moveTo(65, 370);
+				mycontext.lineTo(60, 375);
+				mycontext.lineTo(55, 370);
+				
+				mycontext.strokeStyle = "#000";
+				mycontext.stroke();				
+				
+			} else {
+				document.write("<p>El navegador no soporta la etiqueta Canvas de HTML5</p>");
+			}	
+		</script>
+	</section>
+</body>

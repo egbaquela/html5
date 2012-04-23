@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/html5Reset.css" />		
+	<title>Prueba de canvas con HTML - 05</title>
+	<script src="js/modernizr.custom.90022.js"></script>
+</head>
+<body>
+	<header>
+		<hgroup>
+			<h1>Ejemplos de dibujo de formas en canvas</h1>
+			<p>Algun texto divertido</p>
+		</hgroup>		
+	</header>
+	<section>
+		<script>
+			if (Modernizr.canvas) {
+				document.write("<canvas id=\"my_canvas\" width=\"300\" height=\"225\"></canvas>");
+				var mycanvas = document.getElementById("my_canvas");
+				var mycontext = mycanvas.getContext("2d");
+				mycontext.fillRect(50, 25, 150, 100);
+				mycontext.fillRect(0, 0, 50, 50);
+			} else {
+				document.write("<p>El navegador no soporta la etiqueta Canvas de HTML5</p>");
+			}	
+		</script>
+	</section>
+</body>
